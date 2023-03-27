@@ -1,7 +1,3 @@
-<script>
-import './PageComponent.scss'
-</script>
-
 <template>
   <div class="page">
     <div class="content">
@@ -9,3 +5,7 @@ import './PageComponent.scss'
     </div>
   </div>
 </template>
+
+<style scoped>
+@import url('./PageComponent.scss');
+</style>

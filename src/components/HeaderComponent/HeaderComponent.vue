@@ -11,9 +11,4 @@
   </q-header>
 </template>
 
-<style lang="scss">
-.content {
-  max-width: var(--max-content-width);
-  margin: 0 auto;
-}
-</style>
+<style scoped></style>

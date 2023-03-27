@@ -60,3 +60,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.content {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+}
