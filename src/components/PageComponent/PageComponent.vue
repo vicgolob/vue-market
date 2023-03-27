@@ -1,5 +1,5 @@
 <script>
-import './module.scss'
+import './PageComponent.scss'
 </script>
 
 <template>
