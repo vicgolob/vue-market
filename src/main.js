@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import { Quasar } from 'quasar'
 import quasarIconSet from 'quasar/icon-set/svg-material-icons'
 
+
 // Import icon libraries
 import '@quasar/extras/roboto-font/roboto-font.css'
 import '@quasar/extras/material-icons/material-icons.css'
