@@ -57,7 +57,7 @@ export default {
                   </div>
                 </q-img>
                 <div class="buttons-container" :class="{ hover: productChunk[0].hover }">
-                  <q-btn class="q-px-sm q-mr-sm" label="Carrito" />
+                  <q-btn class="q-px-sm q-mr-sm" label="Agregar al carrito" />
                   <q-btn class="q-px-sm" label="Ver producto" />
                 </div>
               </div>
@@ -75,7 +75,7 @@ export default {
                   </div>
                 </q-img>
                 <div class="buttons-container" :class="{ hover: productChunk[1].hover }">
-                  <q-btn class="q-px-sm q-mr-sm" label="Carrito" />
+                  <q-btn class="q-px-sm q-mr-sm" label="Agregar al carrito" />
                   <q-btn class="q-px-sm" label="Ver producto" />
                 </div>
               </div>
