@@ -1,8 +1,7 @@
 <template>
-  <div class="about">
+  <div>
     <h1>Cart Page</h1>
   </div>
 </template>
 
-<style>
-</style>
+<style></style>
