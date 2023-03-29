@@ -7,9 +7,9 @@ const initiateCart = () => {
   const value = localStorage.getItem('cart')
   return value ? JSON.parse(value) : []
 }
-const cart = ref(initiateCart())
+//const cart = ref(initiateCart())
 
-// const cart = ref([1, 2, 3, 4])
+const cart = ref([1, 2, 3, 4])
 
 const discount = ref(0)
 
