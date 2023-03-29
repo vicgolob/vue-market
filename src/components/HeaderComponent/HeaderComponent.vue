@@ -1,3 +1,7 @@
+<script setup>
+import { inject } from 'vue'
+const { getTotalItems } = inject('cart')
+</script>
 <template>
   <q-header elevated class="q-py-md bg-transparent">
     <q-toolbar class="q-px-none content">
@@ -5,7 +9,7 @@
       <q-space />
       <div>
         <q-icon name="shopping_cart" color="primary" size="32px" />
-        <q-badge floating color="red" rounded>2</q-badge>
+        <q-badge floating color="red" rounded>{{ getTotalItems() }}</q-badge>
       </div>
     </q-toolbar>
   </q-header>
