@@ -39,7 +39,7 @@ const isProductInCart = (id) => !!cart.value.find((item) => item.id === id)
 const isCartEmpty = () => cart.value.length === 0
 
 const getTotalPrice = () => {
-  let total = cart.value.reduce(function (partial, item) {
+  let total = cart.reduce(function (partial, item) {
     return partial + item.price
   }, 0)
   return parseWithTwoDecimals(total)

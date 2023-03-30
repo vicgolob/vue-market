@@ -12,6 +12,10 @@ const props = defineProps({
   },
   productId: {
     type: Number,
+    required: false
+  },
+  price: {
+    type: Number,
     required: true
   }
 })
@@ -23,7 +27,8 @@ const cart = inject('cart')
 const addToCart = () => {
   cart.addToCart({
     id: props.productId,
-    title: props.title
+    title: props.title,
+    price: props.price
   })
 }
 </script>
@@ -37,7 +42,7 @@ const addToCart = () => {
         @mouseout="hover = false"
       >
         <div class="absolute-bottom text-subtitle2 text-center">
-          {{ props.title }}
+          {{ props.title }} - {{ props.price }} €
         </div>
       </q-img>
       <div class="buttons-container" :class="{ hover: hover }">

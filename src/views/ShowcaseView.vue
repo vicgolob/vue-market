@@ -16,6 +16,9 @@ const chunk = (arr, size) =>
 </script>
 
 <template>
+  <div>
+    <h1>Productos destacados</h1>
+  </div>
   <div class="q-pa-md">
     <q-carousel
       v-model="slide"
@@ -38,8 +41,16 @@ const chunk = (arr, size) =>
       >
         <div class="row fit justify-start items-center q-gutter-xs q-col-gutter no-wrap">
           <div class="card-container">
-            <ProductCard :src="productChunk[0].image" :title="productChunk[0].title" />
-            <ProductCard :src="productChunk[1].image" :title="productChunk[1].title" />
+            <ProductCard
+              :src="productChunk[0].image"
+              :title="productChunk[0].title"
+              :price="productChunk[0].price"
+            />
+            <ProductCard
+              :src="productChunk[1].image"
+              :title="productChunk[1].title"
+              :price="productChunk[1].price"
+            />
           </div>
         </div>
       </q-carousel-slide>
