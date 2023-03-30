@@ -41,16 +41,8 @@ const chunk = (arr, size) =>
       >
         <div class="row fit justify-start items-center q-gutter-xs q-col-gutter no-wrap">
           <div class="card-container">
-            <ProductCard
-              :src="productChunk[0].image"
-              :title="productChunk[0].title"
-              :price="productChunk[0].price"
-            />
-            <ProductCard
-              :src="productChunk[1].image"
-              :title="productChunk[1].title"
-              :price="productChunk[1].price"
-            />
+            <ProductCard v-bind="productChunk[0]" />
+            <ProductCard v-bind="productChunk[1]" />
           </div>
         </div>
       </q-carousel-slide>

@@ -1,8 +1,8 @@
 <script setup>
 import { defineProps, inject, ref } from 'vue'
 
-const props = defineProps({
-  src: {
+defineProps({
+  image: {
     type: String,
     required: true
   },
@@ -10,9 +10,9 @@ const props = defineProps({
     type: String,
     required: true
   },
-  productId: {
+  id: {
     type: Number,
-    required: false
+    required: true
   },
   price: {
     type: Number,
@@ -22,31 +22,21 @@ const props = defineProps({
 
 const hover = ref(false)
 
-const cart = inject('cart')
-
-const addToCart = () => {
-  cart.addToCart({
-    id: props.productId,
-    title: props.title,
-    price: props.price
-  })
-}
+const { addToCart } = inject('cart')
 </script>
 <template>
-  <q-card class="my-card" :id="productId">
+  <q-card class="my-card" :key="id">
     <div class="img-container-container">
       <q-img
-        :src="props.src"
+        :src="image"
         class="img-container"
-        @mouseover="hover = true"
-        @mouseout="hover = false"
+        @mouseover="() => (hover = true)"
+        @mouseout="() => (hover = false)"
       >
-        <div class="absolute-bottom text-subtitle2 text-center">
-          {{ props.title }} - {{ props.price }} €
-        </div>
+        <div class="absolute-bottom text-subtitle2 text-center">{{ title }} - {{ price }} €</div>
       </q-img>
       <div class="buttons-container" :class="{ hover: hover }">
-        <q-btn class="q-px-sm q-mr-sm" label="Agregar al carrito" @click="addToCart" />
+        <q-btn class="q-px-sm q-mr-sm" label="Agregar al carrito" @click="() => addToCart(props)" />
         <q-btn class="q-px-sm" label="Ver producto" />
       </div>
     </div>

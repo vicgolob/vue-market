@@ -18,7 +18,7 @@ const { cart, removeFromCart } = inject('cart')
               color="primary"
               label="Remove"
               size="14px"
-              @click="removeFromCart(item.id)"
+              @click="() => removeFromCart(item.id)"
             />
           </q-item-section>
         </q-item>
