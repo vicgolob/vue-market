@@ -1,5 +1,5 @@
 <script setup>
-import { provide, ref, readonly } from 'vue'
+import { provide, ref, readonly, reactive } from 'vue'
 import DISCOUNT_CODES from '@/mocks/discountCodesMock'
 import { parseWithTwoDecimals } from '@/utils'
 
@@ -7,9 +7,8 @@ const initiateCart = () => {
   const value = localStorage.getItem('cart')
   return value ? JSON.parse(value) : []
 }
-//const cart = ref(initiateCart())
 
-const cart = ref([1, 2, 3, 4])
+const cart = reactive(initiateCart())
 
 const discount = ref(0)
 
@@ -33,7 +32,7 @@ const clearCart = () => {
   localStorage.removeItem('cart')
 }
 
-const getTotalItems = () => cart.value.length
+const getTotalItems = () => cart.length
 
 const isProductInCart = (id) => !!cart.value.find((item) => item.id === id)
 
