@@ -23,7 +23,7 @@ const updateCart = (newItems) => {
 }
 
 const removeFromCart = (id) => {
-  const newItems = cart.value.filter((item) => item.id !== id)
+  const newItems = cart.filter((item) => item.id !== id)
   updateCart(newItems)
 }
 
