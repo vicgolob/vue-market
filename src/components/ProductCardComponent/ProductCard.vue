@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps, inject, ref } from 'vue'
+import { inject, ref } from 'vue'
 
 defineProps({
   image: {
@@ -36,7 +36,11 @@ const { addToCart } = inject('cart')
         <div class="absolute-bottom text-subtitle2 text-center">{{ title }} - {{ price }} €</div>
       </q-img>
       <div class="buttons-container" :class="{ hover: hover }">
-        <q-btn class="q-px-sm q-mr-sm" label="Agregar al carrito" @click="() => addToCart(props)" />
+        <q-btn
+          class="q-px-sm q-mr-sm"
+          label="Agregar al carrito"
+          @click="() => addToCart($props)"
+        />
         <q-btn class="q-px-sm" label="Ver producto" />
       </div>
     </div>

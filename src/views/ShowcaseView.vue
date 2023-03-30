@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import ProductCard from '../components/ProductCardComponent/ProductCard.vue'
 
 const products = ref([])
-const slide = ref(1)
+const slide = ref(0)
 fetch('https://fakestoreapi.com/products?limit=4')
   .then((response) => response.json())
   .then((data) => {
