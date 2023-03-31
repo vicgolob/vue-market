@@ -1,5 +1,5 @@
 <script setup>
-import { provide, ref, readonly, toRefs } from 'vue'
+import { provide, ref, readonly } from 'vue'
 import DISCOUNT_CODES from '@/mocks/discountCodesMock'
 import { parseWithTwoDecimals } from '@/utils'
 
@@ -57,25 +57,20 @@ const applyDiscount = () => {
 
 const getTotalAfterDiscount = () => parseWithTwoDecimals(getTotalPrice() - applyDiscount())
 
-provide(
-  'cart',
-  toRefs(
-    readonly({
-      cart,
-      discount,
-      addToCart,
-      removeFromCart,
-      clearCart,
-      getTotalItems,
-      isProductInCart,
-      isCartEmpty,
-      getTotalPrice,
-      getDiscount,
-      applyDiscount,
-      getTotalAfterDiscount
-    })
-  )
-)
+provide('cart', {
+  cart: readonly(cart),
+  discount: readonly(discount),
+  addToCart,
+  removeFromCart,
+  clearCart,
+  getTotalItems,
+  isProductInCart,
+  isCartEmpty,
+  getTotalPrice,
+  getDiscount,
+  applyDiscount,
+  getTotalAfterDiscount
+})
 </script>
 
 <template>
