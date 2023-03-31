@@ -22,7 +22,7 @@ defineProps({
 
 const hover = ref(false)
 
-const { addToCart } = inject('cart')
+const { addToCart, isProductInCart } = inject('cart')
 </script>
 <template>
   <q-card class="my-card" :key="id">
@@ -37,6 +37,7 @@ const { addToCart } = inject('cart')
       </q-img>
       <div class="buttons-container" :class="{ hover: hover }">
         <q-btn
+          v-if="!isProductInCart($props.id)"
           class="q-px-sm q-mr-sm"
           label="Agregar al carrito"
           @click="() => addToCart($props)"
