@@ -7,14 +7,13 @@ const initiateCart = () => {
   const value = localStorage.getItem('cart')
   return value ? JSON.parse(value) : []
 }
-const cart = ref(initiateCart())
 
-// const cart = ref([1, 2, 3, 4])
+const cart = ref(initiateCart())
 
 const discount = ref(0)
 
 const addToCart = (item) => {
-  const newItems = [...cart, item]
+  const newItems = [...cart.value, item]
   updateCart(newItems)
 }
 
@@ -58,23 +57,20 @@ const applyDiscount = () => {
 
 const getTotalAfterDiscount = () => parseWithTwoDecimals(getTotalPrice() - applyDiscount())
 
-provide(
-  'cart',
-  readonly({
-    cart,
-    discount,
-    addToCart,
-    removeFromCart,
-    clearCart,
-    getTotalItems,
-    isProductInCart,
-    isCartEmpty,
-    getTotalPrice,
-    getDiscount,
-    applyDiscount,
-    getTotalAfterDiscount
-  })
-)
+provide('cart', {
+  cart: readonly(cart),
+  discount: readonly(discount),
+  addToCart,
+  removeFromCart,
+  clearCart,
+  getTotalItems,
+  isProductInCart,
+  isCartEmpty,
+  getTotalPrice,
+  getDiscount,
+  applyDiscount,
+  getTotalAfterDiscount
+})
 </script>
 
 <template>

@@ -1,18 +1,33 @@
 <script setup>
 import { inject } from 'vue'
-const { getTotalItems } = inject('cart')
+const { getTotalItems, getTotalPrice } = inject('cart')
 </script>
+
 <template>
   <q-header elevated class="q-py-md bg-transparent">
     <q-toolbar class="q-px-none content">
-      <img src="logo.png" height="70" />
+      <router-link to="/showcase">
+        <img src="logo.png" height="70" />
+      </router-link>
       <q-space />
-      <div>
-        <q-icon name="shopping_cart" color="primary" size="32px" />
-        <q-badge floating color="red" rounded>{{ getTotalItems() }}</q-badge>
+      <div class="row justify-between example-container">
+        <div class="col-auto" v-rt>
+          <router-link to="/cart" class="row items-center">
+            <q-icon name="shopping_cart" color="primary" size="42px" />
+            <q-badge floating color="red" rounded>{{ getTotalItems() }}</q-badge>
+          </router-link>
+        </div>
+        <div class="col-auto" v-rt>
+          <div class="text-center">
+            <p>{{ getTotalPrice() }} €</p>
+            <q-btn outline rounded color="primary" label="Mi carrito" size="12px" to="/cart" />
+          </div>
+        </div>
       </div>
     </q-toolbar>
   </q-header>
 </template>
 
-<style scoped></style>
+<style scoped>
+@import url('./HeaderComponent.scss');
+</style>
